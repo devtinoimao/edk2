@@ -46,6 +46,22 @@ WriteFeatureControl (
       0
       );
   } else {
+    MSR_IA32_FEATURE_CONTROL_REGISTER  Current;
+
+    Current.Uint64 = AsmReadMsr64 (MSR_IA32_FEATURE_CONTROL);
+    if (Current.Bits.Lock) {
+      //
+      // The MSR is locked (for example, by an outer firmware when this OVMF
+      // build is hosted by another loader, or by KVM with -cpu host). Any
+      // WRMSR would fault with #GP; the locked value already governs VMX.
+      //
+      return;
+    }
+
+    if (Current.Uint64 == PlatformInfoHob->FeatureControlValue) {
+      return;
+    }
+
     AsmWriteMsr64 (
       MSR_IA32_FEATURE_CONTROL,
       PlatformInfoHob->FeatureControlValue

@@ -50,7 +50,7 @@ InitializePlatform (
   PlatformInfoHob->DefaultMaxCpuNumber = 64;
   PlatformInfoHob->PcdPciMmio64Size    = 0x800000000;
 
-  PlatformInfoHob->HostBridgeDevId = PciRead16 (OVMF_HOSTBRIDGE_DID);
+  PlatformInfoHob->HostBridgeDevId = OvmfHostBridgeDevId ();
   DEBUG ((DEBUG_INFO, "HostBridgeDeviceId = 0x%x\n", PlatformInfoHob->HostBridgeDevId));
 
   PlatformAddressWidthInitialization (PlatformInfoHob);

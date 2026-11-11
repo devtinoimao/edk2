@@ -32,7 +32,7 @@ ResetShutdown (
   UINT16  HostBridgeDevId;
 
   AcpiPmBaseAddress = 0;
-  HostBridgeDevId   = PciRead16 (OVMF_HOSTBRIDGE_DID);
+  HostBridgeDevId   = OvmfHostBridgeDevId ();
   switch (HostBridgeDevId) {
     case INTEL_82441_DEVICE_ID:
       AcpiPmBaseAddress = PIIX4_PMBA_VALUE;

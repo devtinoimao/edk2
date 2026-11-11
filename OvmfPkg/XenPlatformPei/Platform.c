@@ -475,7 +475,7 @@ InitializeXenPlatform (
   //
   // Query Host Bridge DID
   //
-  mHostBridgeDevId = PciRead16 (OVMF_HOSTBRIDGE_DID);
+  mHostBridgeDevId = OvmfHostBridgeDevId ();
 
   PublishPeiMemory ();
 

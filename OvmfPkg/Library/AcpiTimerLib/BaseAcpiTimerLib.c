@@ -39,7 +39,7 @@ AcpiTimerLibConstructor (
   //
   // Query Host Bridge DID to determine platform type
   //
-  HostBridgeDevId = PciRead16 (OVMF_HOSTBRIDGE_DID);
+  HostBridgeDevId = OvmfHostBridgeDevId ();
   switch (HostBridgeDevId) {
     case INTEL_82441_DEVICE_ID:
       Pmba       = POWER_MGMT_REGISTER_PIIX4 (PIIX4_PMBA);

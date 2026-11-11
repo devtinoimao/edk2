@@ -277,7 +277,7 @@ SmmAccessPeiEntryPoint (
   //
   // Verify if we're running on a Q35 machine type.
   //
-  HostBridgeDevId = PciRead16 (OVMF_HOSTBRIDGE_DID);
+  HostBridgeDevId = OvmfHostBridgeDevId ();
   if (HostBridgeDevId != INTEL_Q35_MCH_DEVICE_ID) {
     DEBUG ((
       DEBUG_ERROR,

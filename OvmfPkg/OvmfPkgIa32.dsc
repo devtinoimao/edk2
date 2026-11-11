@@ -549,6 +549,8 @@
   #
   # On Q35 machine types that QEMU intends to support in the long term, QEMU
   # never lets the RAM below 4 GB exceed 2816 MB.
+  gEfiMdeModulePkgTokenSpaceGuid.PcdImageProtectionPolicy|0x0
+
   gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress|0xE0000000
 
 !if $(SOURCE_DEBUG_ENABLE) == TRUE

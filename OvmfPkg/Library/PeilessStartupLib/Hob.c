@@ -41,7 +41,7 @@ ConstructSecHobList (
   EFI_HOB_PLATFORM_INFO       PlatformInfoHob;
 
   ZeroMem (&PlatformInfoHob, sizeof (PlatformInfoHob));
-  PlatformInfoHob.HostBridgeDevId = PciRead16 (OVMF_HOSTBRIDGE_DID);
+  PlatformInfoHob.HostBridgeDevId = OvmfHostBridgeDevId ();
   PlatformGetSystemMemorySizeBelow4gb (&PlatformInfoHob);
   LowMemorySize = PlatformInfoHob.LowMemory;
   ASSERT (LowMemorySize != 0);
